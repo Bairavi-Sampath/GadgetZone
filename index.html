@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gadget Zone</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e8f0f7);
+    color: #333;
+  }
+
+  /* Header */
+  header {
+    background-color: #0A1931;
+    padding: 15px 20px;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-size: 30px;
+    color: #00E0FF;
+    font-weight: bold;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  .nav-links a:hover {
+    color: #00FF87;
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+  }
+  .search-bar input {
+    border: none;
+    outline: none;
+    padding: 0.4rem;
+    border-radius: 20px;
+  }
+  .search-bar button {
+    background: linear-gradient(45deg, #00E0FF, #007BFF);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+  }
+  .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+  /* Main Content */
+  main {
+    padding: 2rem;
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 2rem;
+    color: #555;
+  }
+
+  /* Product Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 2000px;
+    margin: auto;
+    margin-top: 50px; /* Adds space below the slider */
+  }
+  .product-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,224,255,0.4);
+  }
+  .product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .product-card h3 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.1rem;
+  }
+  .product-card p {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .product-card button {
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(45deg, #00E0FF, #007BFF);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .product-card button:hover {
+    background: linear-gradient(45deg, #00FF87, #00BFA6);
+  }
+  section {
+      padding: 40px 30px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #222;
+    }
+
+  /* Image with Shadow */
+  .shadow-img {
+    width: 250px;
+    height: auto;
+    border-radius: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+ .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px;
+    }
+
+    .item {
+      text-align: center;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .item:hover {
+      transform: scale(1.08);
+    }
+
+    .item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px gray;
+    }
+
+    .item p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+    .gadget-box {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+
+
+  /* Footer */
+  .main-footer {
+  background-color: #0A1931;
+  color: white;
+  padding: 40px 20px 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-col ul li:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 30px;
+}
+  @media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .main-footer {
+    padding: 30px 10px;
+  }
+
+  .footer-col h4 {
+    font-size: 14px;
+  }
+
+  .footer-col ul li {
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
+  }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <h1 class="logo">Gadget Zone</h1>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="search-bar">
+      <input type="text" placeholder="Search gadgets..." />
+      <button>Search</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h2>Welcome to Gadget Zone</h2>
+  <p>Discover our best gadgets at amazing prices</p>
+
+  <img src="temp2.png" alt="Gadget Icon" width="100%" height="1000" />
+
+  <h2 class="section-title" style="text-align:left;">Popular Accessories</h2>
+  <div class="product-grid" class="shadow-img">
+    <div class="product-card">
+      <img src="wireless_headphone.jpg" alt="Wireless Headphones" />
+      <h3>Wireless Headphones</h3>
+      <p>₹3000</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="watch_2.jpg" alt="Smartwatch Pro"/>
+      <h3>Smartwatch Pro</h3>
+      <p>₹5000</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="speaker.jpg" alt="Fast Charger" />
+      <h3>Speaker</h3>
+      <p>₹1500</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="airpods.jpg" alt="EarBuds" />
+      <h3>AirPods</h3>
+      <p>₹900</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="camera_image.jpg" alt="Gaming Mouse" />
+      <h3>Camera</h3>
+      <p>₹7000</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="section-title" style="text-align:center;">Smart Accessories</h2>
+    <div class="container">
+      <div class="item"><img src="Airpods_2.jpg" alt="AirPods"><p>AirPods</p></div>
+      <div class="item"><img src="microphone.jpg" alt="MicroPhone"><p>Microphone</p></div>
+      <div class="item"><img src="fast charger.webp" alt="Fast Charger"><p>Fast Charger</p></div>
+      <div class="item"><img src="smartwatch.webp" alt="Smartwatch"><p>Smartwatch</p></div>
+      <div class="item"><img src="phone_Pouch.jpg" alt="Camera"><p>Camera</p></div>
+      <div class="item"><img src="gaming_mouse.jpg" alt="Mouse"><p>Mouse</p></div>
+      
+    </div>
+  </section>
+
+  
+</main>
+
+<footer>
+  <div class="main-footer">
+    <div class="footer-container">
+
+      <!-- About Us -->
+      <div class="footer-col">
+        <h4>About Us</h4>
+        <p>
+          Gadget Zone is your one-stop shop for the latest and greatest gadgets. 
+          We offer a wide range of products at unbeatable prices.
+        </p>
+      </div>
+
+      <!-- Customer Service -->
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul>
+          <li>Help Center</li>
+          <li>Returns & Exchanges</li>
+          <li>Shipping Information</li>
+          <li>Privacy Policy</li>
+        </ul>
+      </div>
+
+      <!-- Contact Us -->
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li>Email: gadgetsstore07@gmail.com</li>
+          <li>Phone: +123 456 7890</li>
+          <li>Address: 123 Gadget Street, Tech City</li>
+        </ul>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <ul>
+          <li>Facebook</li>
+          <li>Instagram</li>
+          <li>Twitter</li>
+          <li>LinkedIn</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Gadget Zone. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
